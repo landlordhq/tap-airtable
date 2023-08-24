@@ -103,6 +103,7 @@ class Airtable(object):
             keys = []
             meta = metadata.write(meta, (), "inclusion", "available")
             meta = metadata.write(meta, 'database_name', 'base_id', base_id)
+            meta = metadata.write(meta, ('properties', 'id'), 'real_name', 'id')
 
             for field in table["fields"]:
                 # numbers are not allowed at the start of column name in big query
