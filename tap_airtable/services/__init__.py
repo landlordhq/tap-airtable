@@ -126,7 +126,7 @@ class Airtable(object):
 
                 meta = metadata.write(meta, ('properties', field_name), 'inclusion', 'available')
                 meta = metadata.write(meta, ('properties', field_name), 'real_name', field['name'])
-                meta = metadata.write(meta, ('properties', field_name), 'airtable_type', field["config"]["type"] or None)
+                meta = metadata.write(meta, ('properties', field_name), 'airtable_type', field["type"] or None)
                 meta = metadata.write(meta, ('properties', field_name), 'airtable_field_ids', [field["id"]])
 
             schema = Schema(type='object', properties=schema_cols)
