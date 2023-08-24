@@ -32,7 +32,7 @@ class CatalogEntry(CatalogEntry):
 
 
 class Airtable(object):
-    metadata_url = "https://api.airtable.com/v2/meta/"
+    metadata_url = "https://api.airtable.com/v0/meta/bases/{}/tables"
     records_url = "https://api.airtable.com/v0/"
     token = None
     selected_by_default = False
@@ -90,7 +90,7 @@ class Airtable(object):
     def discover_base(cls, base_id, base_name=None):
         cls.logger.info("discover base " + base_id)
         headers = cls.__get_auth_header()
-        response = cls.session.get(url=cls.metadata_url + base_id, headers=headers)
+        response = cls.session.get(url=cls.metadata_url.format(base_id), headers=headers)
         response.raise_for_status()
         entries = []
 
