@@ -151,7 +151,7 @@ class Airtable(object):
     @classmethod
     def column_schema(cls, col_info):
         date_types = ["dateTime"]
-        number_types = ["number", "autoNumber"]
+        number_types = ["number", "autoNumber", "currency"]
         pk_types = ["autoNumber"]
 
         air_type = "string"
